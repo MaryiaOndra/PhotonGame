@@ -59,13 +59,15 @@ public class Messile : MonoBehaviour, IPunObservable
     {
         if (messilePhotonView.IsMine)
         {
-            var _player = _collision.gameObject.GetComponent<PlayerController>();
-            if (_player)
-            {
-                var _photonView = _player.gameObject.GetComponent<PhotonView>();
-                _photonView.RPC("MessileHit", RpcTarget.All);
-                PhotonNetwork.Destroy(messilePhotonView);
-            }
+            PhotonNetwork.Destroy(messilePhotonView);
+
+            //var _player = _collision.gameObject.GetComponent<PlayerController>();
+            //if (_player)
+            //{
+            //    var _photonView = _player.gameObject.GetComponent<PhotonView>();
+            //    _photonView.RPC("MessileHit", RpcTarget.All);
+            //    PhotonNetwork.Destroy(messilePhotonView);
+            //}
         }
     }
 }
